@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var expressValidator = require('express-validator');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
@@ -24,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Handle file uploads
-app.use(multer({dest: './uploads'}))
+var upload = multer({dest: './uploads'});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,7 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // Needs to come after express-session
 
 // Validation (Legacy express-validator)
-app.use(ExpressValidator({
+app.use(expressValidator({
   errorFormatter: (param, msg, value) => {
     var namespace = param.split('.')
     , root = namespace.shift()
