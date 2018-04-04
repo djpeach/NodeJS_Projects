@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1 shrink-to-fit=no')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/layout.css')
+  body
+    nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
+      button.navbar-toggler(data-toggle='collapse' data-target='top-navbar')
+        span.navbar-toggler-icon
+      div.container
+        div.collapse.navbar-collapse#top-navbar
+          ul.navbar-nav.mr-auto
+            li.nav-item(class=(currentPage == 'Members' ? 'active': ''))
+              a.nav-link(href='/') Members
+            if !user
+              li.nav-item(class=(currentPage == 'Register' ? 'active': ''))
+                a.nav-link(href='/users/register') Register
+              li.nav-item(class=(currentPage == 'Log In' ? 'active': ''))
+                a.nav-link(href='/users/login') Log In
+          if user
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link(href='/users/logout') Log Out
+    div.container
+      != messages('flash_messages_template', locals)
+      block content
+    script(src='/javascripts/jquery.min.js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous")
+    script(src='/javascripts/bootstrap.min.js')

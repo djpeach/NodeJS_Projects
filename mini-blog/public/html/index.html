@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Express Demo App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class='container'>
+	<div class='row'>
+		<div class='col'>
+			<div class='my-5 jumbotron text-center'>
+				<h1 class='display-4'>Hey there!</h1>
+				<p class='lead'>Check out these posts...</p>
+				<hr class='my-3'>
+				<a href="#newPostForm" class='mt-5 text-white btn btn-lg btn-success collapsed' data-toggle='collapse' data-target='#newPostForm'>&#43; Create Post</a>
+				<div id='newPostForm' class='collapse'>
+					<div class='mt-3 card bg-light col-sm-10 offset-sm-1'>
+						<div class='card-body'>
+							<div>
+							  <div class="form-group row">
+							    <label for="title" class='text-right col-2'>Title:</label>
+							    <input class='col-9' type="text" class="rounded form-control" id="title" name='title' placeholder="Title for your post">
+							  </div>
+							  <div class="form-group row">
+							    <label for="body" class='text-right col-2'>Body:</label>
+							    <textarea rows='4' class='col-9 form-control' id='body' name='body'></textarea>
+							  </div>
+							  <input id='newPostSubmit' class="btn btn-primary" value="Post" data-toggle='collapse' data-target='#newPostForm'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='posts' class='mb-5'>
+		<!-- Load posts into here -->
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>

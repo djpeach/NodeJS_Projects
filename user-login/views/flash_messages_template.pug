@@ -1,0 +1,19 @@
+//- .messages
+//-     each message_type in Object.keys(messages)
+//-         ul.alert-#{message_type}
+//-             each message in messages[message_type]
+//-                 li.text-#{message_type}= message
+
+//- .messages
+//-   each type in Object.keys(messages)
+//-     p alert-#{type}
+//-     ul(class="#{type}")
+//-       each message in messages[type]
+//-         li= message
+
+.messages
+    each val in Object.keys(messages)
+        div(class='alert alert-'+val)
+            ul
+                each message in messages[val]
+                    li= message

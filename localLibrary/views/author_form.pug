@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	h1= title
+	if errors
+		p.h5.text-danger Please correct errors in the form and try again
+
+	if existing_author
+		p.text-danger.mt-3 An author by this name already exists: 
+			a(href=existing_author.url) #{existing_author.name}
+
+	if created_author
+		p.text-success.mt-3 You created a new author: 
+			a(href=created_author.url) #{created_author.name}
+
+	form(method='POST' action='')
+		div.form-group
+			label(for='first_name') First Name:
+			input#first_name.form-control(type='text' placeholder='First Name' value=(author===undefined ? '' : author.first_name) name='first_name' required='true')
+			label(for='last_name') Last Name:
+			input#last_name.form-control(type='text' placeholder='Last Name' value=(author===undefined ? '' : author.last_name) name='last_name' required='true')
+			label(for='birth_date') Date of birth:
+			input#birth_date.form-control(type='date' placeholder='dd/mm/yyyy' name='birth_date' value=(author===undefined ? '' : original_dates.birth_date))
+			label(for='death_date') Date of death:
+			input#death_date.form-control(type='date' placeholder='dd/mm/yyyy' name='death_date' value=(author===undefined ? '' : original_dates.death_date))
+		button.btn.btn-primary(type='submit') Create Author
+		if errors
+			ul.mt-3 
+				for err in errors
+					li.text-danger #{err.msg}: #{err.value}
+			
+			

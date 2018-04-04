@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	
+	h1= title
+
+	ul.list-group
+	each genre in genre_list
+		li.list-group-item(style='padding: 0')
+			a(href=genre.url style='display: inline-block; padding: 12px 8px') #{genre.name}
+
+	else
+		li.list-group-item.text-danger There are no genres

@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    h1 Register
+    p.lead Please register using the form below
+    if errors != ''
+        li.lead.text-danger.mb-3.ml-5 There were errors in the form, please try again. (also, enter passwords again for security)
+    form(method='post' action='')
+        .form-group.row(class=(errors.firstName ? 'mb-0' : ''))
+            label.col-2.mr-4.my-auto(for='firstName') First Name: 
+            input#firstName.form-control.col-5(name='firstName' type='text' placeholder='First Name' value=(errors.firstName ? errors.firstName.value : matchedData.firstName))
+        if errors.firstName
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.firstName.msg}
+
+        .form-group.row(class=(errors.lastName ? 'mb-0' : ''))
+            label.col-2.mr-4.my-auto(for='lastName') Last Name: 
+            input#lastName.form-control.col-5(name='lastName' type='text' placeholder='Last Name' value=(errors.lastName ? errors.lastName.value : matchedData.lastName))
+        if errors.lastName
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.lastName.msg}
+
+        .form-group.row(class=(errors.username ? 'mb-0' : ''))
+            .label.col-2.mr-4.my-auto(for='username') User Name: 
+            input#username.form-control.col-5(name='username' type='text' placeholder='User Name' value=(errors.username ? errors.username.value : matchedData.username))
+        if errors.username
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.username.msg}
+
+        .form-group.row(class=(errors.email ? 'mb-0' : ''))
+            label.col-2.mr-4.my-auto(for='email') Email: 
+            input#email.form-control.col-5(name='email' type='email' placeholder='Email' value=(errors.email ? errors.email.value : matchedData.email))
+        if errors.email
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.email.msg}
+
+        .form-group.row(class=(errors.password ? 'mb-0' : ''))
+            label.col-2.mr-4.my-auto(for='password') Password: 
+            input#password.form-control.col-5(name='password' type='password' placeholder='Password')
+        if errors.password
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.password.msg}
+
+        .form-group.row(class=(errors.passwordConfirmation ? 'mb-0' : ''))
+            label.col-2.mr-4.my-auto(for='passwordConfirmation') Confirm Password: 
+            input#passwordConfirmation.form-control.col-5(name='passwordConfirmation' type='password' placeholder='Confirm Password')
+        if errors.passwordConfirmation
+            .row
+                .col-5.offset-2
+                    small.text-danger.form-text.mt-1.mb-3.ml-2 #{errors.passwordConfirmation.msg}
+        input.btn.btn-success.ml-3(name='submit' type='submit' value='Register')
+        

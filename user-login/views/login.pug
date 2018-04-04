@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Login
+    p.lead Please Log In below
+    p= message
+    != messages()
+    form(method='post' action='')
+        .form-group.row
+            label.col-2.mr-4.my-auto(for='username') User Name:
+            input#username.form-control.col-5(name='username' type='text' placeholder='User Name')
+        .form-group.row
+            label.col-2.mr-4.my-auto(for='password') Password: 
+            input#password.form-control.col-5(name='password' type='password' placeholder='Password')
+        input.btn.btn-success.ml-3(name='submit' type='submit' value='Log In')

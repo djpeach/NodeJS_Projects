@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	h1= title
+	p(class='lead') Welcome to #[em LocalLibrary], a very Basic Mozilla Express App.
+
+	h3 Dynamic Content
+
+	if error
+		p(class='text-danger') There was an error getting the content
+	else 
+		p(class='text-success font-weight-bold') The library currently has the following counts:
+
+	ul(class='list-group ml-5')
+		li #[strong Books:] !{data.book_count}
+		li #[strong Book Instances:] !{data.book_instance_count}
+		li #[strong Book Instances Available:] !{data.book_instance_available_count}
+		li #[strong Authors:] !{data.author_count}
+		li #[strong Genres:] !{data.genre_count}

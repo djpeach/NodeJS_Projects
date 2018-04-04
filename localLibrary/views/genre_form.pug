@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	h1 #{title}
+	if errors
+		p.h5.text-danger Please correct errors in the form and try again
+
+	if existing_genre
+		p.text-danger.mt-3 This genre already exists: 
+			a(href=existing_genre.url) #{genre.name}
+
+	if new_genre
+		p.text-success.mt-3 You create a new genre: 
+			a(href=new_genre.url) #{genre.name}
+
+	form(method='POST' action='')
+		div.form-group
+			label(for='name') Genre:
+			input#name.form-control(type='text', placeholder=(genre===undefined ? 'Fantasy, Poetry, etc.' : genre.name) name='name' required='true')
+		button.btn.btn-primary(type='submit') Create Genre
+
+	if errors
+		ul.mt-3
+			for err in errors
+				li.text-danger.mt-3!= err.msg

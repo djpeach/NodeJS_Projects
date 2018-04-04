@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+
+	ul(class='list-group')
+	each book in book_list
+		li(class='list-group-item' style='padding: 0')
+			a(href=book.url style='display: inline-block; padding: 12px 8px;') #{book.title} 
+			| (#{book.author.name})
+
+	else
+		li(class='list-group-item bg-danger') There are no books.

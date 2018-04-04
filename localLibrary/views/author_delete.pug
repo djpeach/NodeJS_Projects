@@ -1,0 +1,18 @@
+extends layout
+	
+block content
+	h1 Delete Author: #{author.name}
+
+	if authors_books
+		p.lead.text-danger This author still has books associated with them, please delete those first
+		each book in authors_books
+			hr
+			a(href=book.url) #{book.title}
+	else
+		div.border.rounded.p-3
+			p.lead.text-danger Are you sure you want to delete this author?
+			form(method='POST' action='' style='display: inline-block;')
+				div.form-group
+					input#authorid.form-control(type='hidden' name='authorid' value=author._id required='true')
+				button.btn.btn-danger.text-white(type='submit') Yes, delete the author
+			a.btn.btn-success.text-white.ml-3(style='display: inline-block;' href='/catalog/authors') No, I changed my mind

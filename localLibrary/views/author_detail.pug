@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+	h1 Author: #{author.name}
+
+	p #[strong #{author.birth_date_formatted}#{author.death_date_formatted}]
+
+	dl
+	each book in author_books_list
+		dt
+			a(href=book.url) #[strong #{book.title}]
+		dd #{book.summary}
+
+	else
+		p.text-danger This author has no books yet
+
+	hr
+	a.btn.btn-danger(href=author.url+'/delete') Delete Author
