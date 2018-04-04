@@ -48,7 +48,7 @@ This is the app that is built with the Mozilla Express Tutorial found here: [Bui
 * Open Terminal on Mac or Command Prompt on Windows.
 * Type `mongod` to and press **Enter** to run a MongoDB instance.
     * Make sure the database is running on port 27017.
-* Open a new Terminal or Command Prompt window, and navigate to the *localLibrary* directory.
+* Open a new Terminal or Command Prompt window, and navigate to the *01 - Local Library* directory.
 * Type `npm run devstart` and press **Enter** to run the server.
 * Go to http://localhost:3000 in a web browser to see and use the project.
 
