@@ -52,8 +52,6 @@ exports.author_create_post = [
 		.isAlphanumeric().withMessage('First name must only have letters'),
 	body('last_name').isLength({min:1}).trim().withMessage('Last name must be specified')
 		.isAlphanumeric().withMessage('Last name must only have letters'),
-	body('birth_date', 'Invalid date of birth').optional({checkFalsy: true}).isISO8601(),
-	body('death_date', 'Invalid date of death').optional({checkFalsy: true}).isISO8601(),
 
 	//Sanitize fields, and structure them correctly to be used to create new Author
 	sanitizeBody('first_name').trim().escape(),
@@ -65,8 +63,8 @@ exports.author_create_post = [
 		};
 		next();
 	},
-	sanitizeBody('birth_date').toDate(),
-	sanitizeBody('death_date').toDate(),
+	sanitizeBody('birth_date').trim().escape(),
+	sanitizeBody('death_date').trim().escape(),
 
 	(req, res, next) => {
 		// Get the errors from the validation on the request

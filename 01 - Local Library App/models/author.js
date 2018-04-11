@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 var AuthorSchema = new Schema({
 	first_name: {type: String, required: true, max: 100},
 	last_name: {type: String, required: true, max: 100},
-	birth_date: {type: Date},
-	death_date: {type: Date}
+	birth_date: {type: String},
+	death_date: {type: String}
 });
 
 AuthorSchema.virtual('name').get( function(){ return `${this.last_name}, ${this.first_name}` });
