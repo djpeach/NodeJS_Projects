@@ -10,6 +10,7 @@ The purpose of this document is to describe my preferred structure when building
 * [config](https://www.npmjs.com/package/config)
 * [express](https://www.npmjs.com/package/express)
 * [mongoose](https://www.npmjs.com/package/mongoose)
+* [joi](https://www.npmjs.com/package/joi)
 
 ## Development:
 
