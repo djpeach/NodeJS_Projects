@@ -148,6 +148,17 @@ app.use('/api/:router', (req, res, next) => {
 
 app.use('/api/user', customerRouter);
 
+app.use((req, res, next) => {
+    let err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error');
+});
+
 app.listen(config.get('port'), () => {
     basicLog(`App listening on port ${config.get('port')}`);
 });
