@@ -188,19 +188,19 @@ This file does a number of things in order.
   
   > We get our port from the `config` module's files and then log out a success message using `basicLog`
 
-### models/*.model.js
+### `models/*.model.js`
 
 ```
 Coming soon
 ```
 
-### validators/*.validator.js
+### `validators/*.validator.js`
 
 ```
 Coming soon
 ```
 
-### controllers/*.controller.js
+### `controllers/*.controller.js`
 
 ```
 Coming soon
